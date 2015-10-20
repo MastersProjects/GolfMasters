@@ -61,7 +61,7 @@ public class MainGUI extends JFrame {
 		contentPane.add(lblVorname);
 		
 		JLabel lblNachname = new JLabel("Vorname");
-		lblNachname.setBounds(235, 71, 90, 16);
+		lblNachname.setBounds(239, 71, 90, 16);
 		contentPane.add(lblNachname);
 		
 		nachname_textField = new JTextField();
@@ -70,7 +70,7 @@ public class MainGUI extends JFrame {
 		nachname_textField.setColumns(10);
 		
 		vorname_textField = new JTextField();
-		vorname_textField.setBounds(294, 65, 134, 28);
+		vorname_textField.setBounds(298, 65, 134, 28);
 		contentPane.add(vorname_textField);
 		vorname_textField.setColumns(10);
 		
