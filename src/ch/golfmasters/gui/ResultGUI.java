@@ -15,8 +15,7 @@ import javax.swing.JButton;
 public class ResultGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
-	private JTable table_1;
+	private JTable rangliste_table;
 
 	/**
 	 * Launch the application.
@@ -55,13 +54,9 @@ public class ResultGUI extends JFrame {
 		lblGewinner.setBounds(22, 52, 61, 16);
 		contentPane.add(lblGewinner);
 		
-		table = new JTable();
-		table.setBounds(22, 229, 399, -127);
-		contentPane.add(table);
-		
-		table_1 = new JTable();
-		table_1.setBounds(20, 222, 408, -127);
-		contentPane.add(table_1);
+		rangliste_table = new JTable();
+		rangliste_table.setBounds(22, 229, 399, -127);
+		contentPane.add(rangliste_table);
 		
 		JButton btnBeenden = new JButton("Beenden");
 		btnBeenden.setBounds(327, 243, 117, 29);

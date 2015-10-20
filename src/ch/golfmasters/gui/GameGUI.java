@@ -15,7 +15,7 @@ import javax.swing.JTable;
 public class GameGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTable runde_table;
 
 	/**
 	 * Launch the application.
@@ -62,13 +62,13 @@ public class GameGUI extends JFrame {
 		btnLetzteRunde.setBounds(0, 243, 131, 29);
 		contentPane.add(btnLetzteRunde);
 		
-		table = new JTable();
-		table.setBounds(22, 220, 406, -131);
-		contentPane.add(table);
+		runde_table = new JTable();
+		runde_table.setBounds(22, 220, 406, -131);
+		contentPane.add(runde_table);
 		
-		JLabel lblRundeX = new JLabel("Runde x");
-		lblRundeX.setBounds(22, 52, 61, 16);
-		contentPane.add(lblRundeX);
+		JLabel lblRunde = new JLabel("Runde x");
+		lblRunde.setBounds(22, 52, 61, 16);
+		contentPane.add(lblRunde);
 	}
 
 }
