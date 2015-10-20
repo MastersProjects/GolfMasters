@@ -9,11 +9,19 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.Font;
+
 import javax.swing.JTable;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import ch.golfmasters.listener.AddPlayerListener;
+
 import java.awt.Color;
+import java.util.Vector;
 
 public class MainGUI extends JFrame {
 
@@ -78,10 +86,36 @@ public class MainGUI extends JFrame {
 		btnAddUser.setBounds(336, 105, 101, 29);
 		contentPane.add(btnAddUser);
 		
-//		String [] columns = {"Nachname", "Vorname"};
+		Vector<String> columnNames = new Vector<String>();
+		columnNames.addElement("Name");
+		columnNames.addElement("Vorname");
+		
+		//Vector mit den Datensätze erstellen
+		@SuppressWarnings("rawtypes")
+		Vector<Vector> data = new Vector<Vector>();
+		
+		//erstellt ein Vector mit den Noten
+	
+			
+			Vector<Object> row = new Vector<Object>();
+				
+			row.addElement("hallo");	
+			row.addElement("hallo");
+							
+			data.addElement(row);						
+		
+		
+		//Tabel Model erstellen
+		TableModel model = new DefaultTableModel(data, columnNames);
+		
+		//das alte Table Model mit den neuen Model wechseln
+			
+		
 		user_table = new JTable();
 		user_table.setToolTipText("\n");
 		user_table.setBounds(32, 270, 405, -72);
+		user_table.setModel(model);	
+		
 		contentPane.add(user_table);
 		
 		lblPlayers = new JLabel("Players");
@@ -91,5 +125,7 @@ public class MainGUI extends JFrame {
 		btnCreateGame = new JButton("Create Game");
 		btnCreateGame.setBounds(336, 280, 117, 29);
 		contentPane.add(btnCreateGame);
+		
+		btnAddUser.addActionListener(new AddPlayerListener(this, user_table, nachname_textField, vorname_textField));
 	}
 }

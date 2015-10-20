@@ -7,6 +7,12 @@ public class Spieler {
 	private String name;
 	private String vorname;
 	
+	public Spieler(int spielerNr, String name, String vorname){
+		this.spielerNr = spielerNr;
+		this.name = name;
+		this.vorname = vorname;
+	}
+	
 	
 	//Getter und Setter
 	public int getSpielerNr() {
@@ -26,6 +32,15 @@ public class Spieler {
 	}
 	public void setVorname(String vorname) {
 		this.vorname = vorname;
+	}
+	
+	public String toString(){
+		String string = "";
+		string = string + "SpielNr: " + this.spielerNr;
+		string = string + " Name: " + this.name;
+		string = string + " Vorname: " + this.vorname;
+		return string;
+		
 	}
 	
 	

@@ -6,8 +6,12 @@ public class Spiel {
 	 
 	//Instanz Variablen
 	private int spielNr;
-	private ArrayList<Runde> runden;
-	private ArrayList<Spieler> spieler;
+	private ArrayList<Runde> runden = new ArrayList<>();
+	private ArrayList<Spieler> spieler = new ArrayList<>();
+	
+	public Spiel(int spielNr){
+		this.spielNr = spielNr;
+	}
 	
 	
 	
@@ -32,6 +36,8 @@ public class Spiel {
 	public void setSpieler(ArrayList<Spieler> spieler) {
 		this.spieler = spieler;
 	}
+	
+
 
 	
 }
