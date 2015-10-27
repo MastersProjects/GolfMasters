@@ -1,9 +1,6 @@
 package ch.golfmasters.main;
 
 import ch.golfmasters.gui.MainGUI;
-import ch.golfmasters.model.Runde;
-import ch.golfmasters.model.Spiel;
-import ch.golfmasters.model.Spieler;
 
 public class Main {
 

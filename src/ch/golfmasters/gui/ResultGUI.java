@@ -1,18 +1,15 @@
 package ch.golfmasters.gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-
-import java.awt.SystemColor;
 import java.awt.Font;
+import java.awt.SystemColor;
 
-import javax.swing.JTable;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 
 import ch.golfmasters.listener.ResultGUIListener;
 
@@ -63,12 +60,12 @@ public class ResultGUI extends JFrame {
 		
 		JButton btnBeenden = new JButton("Beenden");
 		btnBeenden.setBounds(327, 243, 117, 29);
-		btnBeenden.addActionListener(new ResultGUIListener(btnBeenden.getText()));
+		btnBeenden.addActionListener(new ResultGUIListener(btnBeenden.getText(), this));
 		contentPane.add(btnBeenden);
 		
 		JButton btnNeuesSpiel = new JButton("Neues Spiel");
 		btnNeuesSpiel.setBounds(174, 243, 117, 29);
-		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel.getText()));
+		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel.getText(), this));
 		contentPane.add(btnNeuesSpiel);
 	}
 
