@@ -7,10 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.SystemColor;
 import java.awt.Font;
+
 import javax.swing.JTable;
 import javax.swing.JButton;
+
+import ch.golfmasters.listener.ResultGUIListener;
 
 public class ResultGUI extends JFrame {
 
@@ -25,7 +29,6 @@ public class ResultGUI extends JFrame {
 			public void run() {
 				try {
 					ResultGUI frame = new ResultGUI();
-					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,7 +46,7 @@ public class ResultGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		setVisible(true);
 		JLabel lblResultat = new JLabel("Resultat");
 		lblResultat.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblResultat.setBackground(SystemColor.window);
@@ -60,10 +63,12 @@ public class ResultGUI extends JFrame {
 		
 		JButton btnBeenden = new JButton("Beenden");
 		btnBeenden.setBounds(327, 243, 117, 29);
+		btnBeenden.addActionListener(new ResultGUIListener(btnBeenden.getText()));
 		contentPane.add(btnBeenden);
 		
 		JButton btnNeuesSpiel = new JButton("Neues Spiel");
 		btnNeuesSpiel.setBounds(174, 243, 117, 29);
+		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel.getText()));
 		contentPane.add(btnNeuesSpiel);
 	}
 
