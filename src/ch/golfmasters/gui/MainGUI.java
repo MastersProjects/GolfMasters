@@ -1,30 +1,19 @@
 package ch.golfmasters.gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Font;
+import java.util.Vector;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-
-import java.awt.Font;
-
-import javax.swing.JTable;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import javax.swing.border.EmptyBorder;
 
 import ch.golfmasters.listener.AddPlayerListener;
 import ch.golfmasters.listener.CreateGameListener;
 import ch.golfmasters.model.Spiel;
-
-import java.awt.Color;
-import java.util.Vector;
 
 public class MainGUI extends JFrame {
 
