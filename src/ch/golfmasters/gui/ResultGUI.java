@@ -63,12 +63,12 @@ public class ResultGUI extends JFrame {
 		
 		JButton btnBeenden = new JButton("Beenden");
 		btnBeenden.setBounds(327, 243, 117, 29);
-		btnBeenden.addActionListener(new ResultGUIListener(btnBeenden.getText()));
+		btnBeenden.addActionListener(new ResultGUIListener(btnBeenden.getText(), this));
 		contentPane.add(btnBeenden);
 		
 		JButton btnNeuesSpiel = new JButton("Neues Spiel");
 		btnNeuesSpiel.setBounds(174, 243, 117, 29);
-		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel.getText()));
+		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel.getText(), this));
 		contentPane.add(btnNeuesSpiel);
 	}
 
