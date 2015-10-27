@@ -6,22 +6,26 @@ import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import ch.golfmasters.model.Spiel;
+import ch.golfmasters.model.Spieler;
+
 
 public class AddPlayerListener implements ActionListener {
 	
-	private JFrame frame;
-	private JTable table;
+	private Spiel spiel;
+	private JTextArea textArea;
 	private JTextField name;
 	private JTextField vorname;
 
-	public AddPlayerListener(JFrame frame, JTable table, JTextField name, JTextField vorname){
-		this.frame = frame;
-		this.table = table;
+	public AddPlayerListener(Spiel spiel, JTextArea textArea, JTextField name, JTextField vorname){
+		this.spiel = spiel;
+		this.textArea = textArea;
 		this.name = name;
 		this.vorname = vorname;
 	}
@@ -31,31 +35,20 @@ public class AddPlayerListener implements ActionListener {
 		System.out.println(this.name.getText());
 		System.out.println(this.vorname.getText());
 		//Vector mit den Titeln erstellen
-		Vector<String> columnNames = new Vector<String>();
-		columnNames.addElement("Name");
-		columnNames.addElement("Vorname");
+		int anzahlSpieler = spiel.getSpieler().size();
+		Spieler spieler = new Spieler(anzahlSpieler + 1, this.name.getText(), this.vorname.getText());
+		spiel.getSpieler().add(spieler);
 		
-		//Vector mit den Datensätze erstellen
-		@SuppressWarnings("rawtypes")
-		Vector<Vector> data = new Vector<Vector>();
-		
-		//erstellt ein Vector mit den Noten
+		String currentText = textArea.getText();
+		String newText = currentText + "\nNr: "+ (anzahlSpieler + 1) + "  Name: " + this.name.getText() + "  Vorname: " + this.vorname.getText();
+		textArea.setText(newText);
 	
-			
-			Vector<Object> row = new Vector<Object>();
-				
-			row.addElement(this.name.getText());	
-			row.addElement(this.vorname.getText());
-							
-			data.addElement(row);						
+		name.setText("");
+		vorname.setText("");
 		
-		
-		//Tabel Model erstellen
-		TableModel model = new DefaultTableModel(data, columnNames);
-		
-		//das alte Table Model mit den neuen Model wechseln
-		this.table.setModel(model);		
-		SwingUtilities.updateComponentTreeUI(frame);
+		for(Spieler spieler1 : spiel.getSpieler()){
+			System.out.println(spieler1);
+		}
 	}
 
 }

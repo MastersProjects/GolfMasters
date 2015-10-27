@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -19,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import ch.golfmasters.listener.AddPlayerListener;
+import ch.golfmasters.model.Spiel;
 
 import java.awt.Color;
 import java.util.Vector;
@@ -28,35 +30,26 @@ public class MainGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField nachname_textField;
 	private JTextField vorname_textField;
-	private JTable user_table;
 	private JLabel lblPlayers;
 	private JButton btnCreateGame;
+	private JTextArea textArea = new JTextArea();
+	
+	private Spiel spiel = new Spiel(1);
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainGUI frame = new MainGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	public MainGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 466, 345);
+		setBounds(100, 100, 467, 382);
+		setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		
 		contentPane.setLayout(null);
 		
 		JLabel lblGolfmasters = new JLabel("GolfMasters");
@@ -89,43 +82,18 @@ public class MainGUI extends JFrame {
 		Vector<String> columnNames = new Vector<String>();
 		columnNames.addElement("Name");
 		columnNames.addElement("Vorname");
-		
-		//Vector mit den Datensätze erstellen
-		@SuppressWarnings("rawtypes")
-		Vector<Vector> data = new Vector<Vector>();
-		
-		//erstellt ein Vector mit den Noten
-	
-			
-			Vector<Object> row = new Vector<Object>();
-				
-			row.addElement("hallo");	
-			row.addElement("hallo");
-							
-			data.addElement(row);						
-		
-		
-		//Tabel Model erstellen
-		TableModel model = new DefaultTableModel(data, columnNames);
-		
-		//das alte Table Model mit den neuen Model wechseln
-			
-		
-		user_table = new JTable();
-		user_table.setToolTipText("\n");
-		user_table.setBounds(32, 270, 405, -72);
-		user_table.setModel(model);	
-		
-		contentPane.add(user_table);
+		textArea.setBounds(22, 161 , 410, 131);
+		contentPane.add(textArea);
 		
 		lblPlayers = new JLabel("Players");
-		lblPlayers.setBounds(24, 164, 61, 16);
+		lblPlayers.setBounds(22, 134, 61, 16);
 		contentPane.add(lblPlayers);
 		
 		btnCreateGame = new JButton("Create Game");
-		btnCreateGame.setBounds(336, 280, 117, 29);
+		btnCreateGame.setBounds(315, 303, 117, 29);
 		contentPane.add(btnCreateGame);
 		
-		btnAddUser.addActionListener(new AddPlayerListener(this, user_table, nachname_textField, vorname_textField));
+		btnAddUser.addActionListener(new AddPlayerListener(spiel, textArea, nachname_textField, vorname_textField));
+		setContentPane(contentPane);
 	}
 }
