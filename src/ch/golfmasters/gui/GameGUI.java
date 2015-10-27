@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 
 import ch.golfmasters.listener.AddPointListener;
+import ch.golfmasters.listener.RoundButtonListener;
 import ch.golfmasters.model.Runde;
 import ch.golfmasters.model.Spiel;
 import ch.golfmasters.model.Spieler;
@@ -69,11 +70,13 @@ public class GameGUI extends JFrame {
 		JButton next = new JButton("Nächste Runde");
 		next.setBounds(340, 288, 131, 29);
 		next.setEnabled(false);
+		next.addActionListener(new RoundButtonListener(next.getText(), spiel, this));
 		contentPane.add(next);
 		
 		JButton end = new JButton("Spiel beenden");
 		end.setBounds(22, 288, 117, 29);
 		end.setEnabled(false);
+		end.addActionListener(new RoundButtonListener(end.getText(), spiel, this));
 		contentPane.add(end);
 		
 		JLabel lblRunde = new JLabel("Runde x");
