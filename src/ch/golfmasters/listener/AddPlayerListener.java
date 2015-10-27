@@ -32,9 +32,7 @@ public class AddPlayerListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println(this.name.getText());
-		System.out.println(this.vorname.getText());
-		//Vector mit den Titeln erstellen
+
 		int anzahlSpieler = spiel.getSpieler().size();
 		Spieler spieler = new Spieler(anzahlSpieler + 1, this.name.getText(), this.vorname.getText());
 		spiel.getSpieler().add(spieler);

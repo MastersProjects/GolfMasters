@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import ch.golfmasters.listener.AddPlayerListener;
+import ch.golfmasters.listener.CreateGameListener;
 import ch.golfmasters.model.Spiel;
 
 import java.awt.Color;
@@ -93,6 +94,7 @@ public class MainGUI extends JFrame {
 		btnCreateGame.setBounds(315, 303, 117, 29);
 		contentPane.add(btnCreateGame);
 		
+		btnCreateGame.addActionListener(new CreateGameListener(this, spiel));
 		btnAddUser.addActionListener(new AddPlayerListener(spiel, textArea, nachname_textField, vorname_textField));
 		setContentPane(contentPane);
 	}

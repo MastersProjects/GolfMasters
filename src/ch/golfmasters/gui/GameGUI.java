@@ -7,36 +7,27 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.awt.Color;
+
 import javax.swing.JButton;
 import javax.swing.JTable;
+
+import ch.golfmasters.model.Spiel;
 
 public class GameGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTable runde_table;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameGUI frame = new GameGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
+	private Spiel spiel;
 
 	/**
 	 * Create the frame.
 	 */
 	public GameGUI() {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -69,6 +60,14 @@ public class GameGUI extends JFrame {
 		JLabel lblRunde = new JLabel("Runde x");
 		lblRunde.setBounds(22, 52, 61, 16);
 		contentPane.add(lblRunde);
+	}
+
+	public Spiel getSpiel() {
+		return spiel;
+	}
+
+	public void setSpiel(Spiel spiel) {
+		this.spiel = spiel;
 	}
 
 }
