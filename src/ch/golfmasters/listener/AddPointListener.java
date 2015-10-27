@@ -52,6 +52,7 @@ public class AddPointListener implements ActionListener{
 			end.setEnabled(true);
 			next.setEnabled(true);			
 			add.setEnabled(false);
+			spiel.getRunden().add(runde);
 			
 		}else if(spiel.getSpieler().size() != spielerListNr +1){
 			nachname.setText(spielern.get(spielerListNr +1).getName());
