@@ -36,7 +36,6 @@ public class MainGUI extends JFrame {
 	public MainGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 467, 382);
-		setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
@@ -81,10 +80,12 @@ public class MainGUI extends JFrame {
 		
 		btnCreateGame = new JButton("Create Game");
 		btnCreateGame.setBounds(315, 303, 117, 29);
+		btnCreateGame.setEnabled(false);
 		contentPane.add(btnCreateGame);
 		
 		btnCreateGame.addActionListener(new CreateGameListener(this, spiel));
-		btnAddUser.addActionListener(new AddPlayerListener(spiel, textArea, nachname_textField, vorname_textField));
+		btnAddUser.addActionListener(new AddPlayerListener(spiel, textArea, nachname_textField, vorname_textField, btnCreateGame));
 		setContentPane(contentPane);
+		setVisible(true);
 	}
 }
