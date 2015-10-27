@@ -12,38 +12,30 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import ch.golfmasters.listener.ResultGUIListener;
+import ch.golfmasters.model.Spiel;
+
+import javax.swing.JTextArea;
 
 public class ResultGUI extends JFrame {
 
+	private Spiel spiel;
+	
 	private JPanel contentPane;
 	private JTable rangliste_table;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ResultGUI frame = new ResultGUI();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public ResultGUI() {
+	public ResultGUI(Spiel spiel) {
+		this.spiel = spiel;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 523, 359);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		setVisible(true);
+
 		JLabel lblResultat = new JLabel("Resultat");
 		lblResultat.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblResultat.setBackground(SystemColor.window);
@@ -59,14 +51,19 @@ public class ResultGUI extends JFrame {
 		contentPane.add(rangliste_table);
 		
 		JButton btnBeenden = new JButton("Beenden");
-		btnBeenden.setBounds(327, 243, 117, 29);
+		btnBeenden.setBounds(329, 268, 117, 29);
 		btnBeenden.addActionListener(new ResultGUIListener(btnBeenden.getText(), this));
 		contentPane.add(btnBeenden);
 		
 		JButton btnNeuesSpiel = new JButton("Neues Spiel");
-		btnNeuesSpiel.setBounds(174, 243, 117, 29);
+		btnNeuesSpiel.setBounds(177, 268, 117, 29);
 		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel.getText(), this));
 		contentPane.add(btnNeuesSpiel);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(22, 79, 424, 178);
+		contentPane.add(textArea);
+		setVisible(true);
 	}
 
 }
