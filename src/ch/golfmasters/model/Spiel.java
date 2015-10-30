@@ -51,7 +51,7 @@ public class Spiel {
 	}
 	
 	public Vector<?> getRangliste(){
-		Vector<Vector> data = new Vector<Vector>();
+		Vector<Object> data = new Vector<Object>();
 		for(Spieler spieler : spielern){
 			Vector<Object> row = new Vector<Object>();
 			row.addElement(spieler.getName() + " " + spieler.getVorname());

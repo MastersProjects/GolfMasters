@@ -19,6 +19,10 @@ import ch.golfmasters.model.Spiel;
 
 public class MainGUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField nachname_textField;
 	private JTextField vorname_textField;

@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Vector;
 
@@ -32,6 +33,11 @@ import javax.swing.JScrollPane;
 
 public class ResultGUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Spiel spiel;
 	
 	private JPanel contentPane;	
@@ -43,7 +49,7 @@ public class ResultGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public ResultGUI(Spiel spiel) {
-		this.spiel = spiel;
+		this.setSpiel(spiel);
 		System.out.println(spiel.getRunden().size());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,11 +110,10 @@ public class ResultGUI extends JFrame {
 		ranglisteTable.setEnabled(false);
 		ranglisteTable.setRowHeight(25);
 		
-		TableRowSorter<TableModel> sorter = new TableRowSorter<>(ranglisteTable.getModel());
+		TableRowSorter<TableModel> sorter = new TableRowSorter<>(ranglisteTable.getModel());		
 		ranglisteTable.setRowSorter(sorter);
 		List<RowSorter.SortKey> sortKeys = new ArrayList<>();
-		int columnIndexToSort = 1;
-		sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.ASCENDING));
+		sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
 		sorter.setSortKeys(sortKeys);
 		sorter.sort();
 		
@@ -123,5 +128,15 @@ public class ResultGUI extends JFrame {
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 		
 		setVisible(true);
+	}
+
+
+	public Spiel getSpiel() {
+		return spiel;
+	}
+
+
+	public void setSpiel(Spiel spiel) {
+		this.spiel = spiel;
 	}
 }

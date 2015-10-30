@@ -1,8 +1,5 @@
 package ch.golfmasters.gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,7 +11,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
-import javax.swing.JTable;
 
 import ch.golfmasters.listener.AddPointListener;
 import ch.golfmasters.listener.RoundButtonListener;
@@ -25,14 +21,15 @@ import ch.golfmasters.model.Spieler;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class GameGUI extends JFrame {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	
-	
 	private int spielerListNr = 0;
 	
 	private Spiel spiel;
