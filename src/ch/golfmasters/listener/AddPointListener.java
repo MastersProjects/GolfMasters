@@ -40,7 +40,7 @@ public class AddPointListener implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		ArrayList<Spieler> spielern = spiel.getSpieler();	
+		ArrayList<Spieler> spielern = spiel.getSpielern();	
 		this.runde.getPunkte().put(spielern.get(spielerListNr).getSpielerNr(), Integer.parseInt(punkte.getText()));
 				
 		String currentText = textArea.getText();
@@ -48,13 +48,13 @@ public class AddPointListener implements ActionListener{
 		textArea.setText(newText);
 		punkte.setText("");
 
-		if(spiel.getSpieler().size() == spielerListNr +1){
+		if(spiel.getSpielern().size() == spielerListNr +1){
 			end.setEnabled(true);
 			next.setEnabled(true);			
 			add.setEnabled(false);
 			spiel.getRunden().add(runde);
 			
-		}else if(spiel.getSpieler().size() != spielerListNr +1){
+		}else if(spiel.getSpielern().size() != spielerListNr +1){
 			nachname.setText(spielern.get(spielerListNr +1).getName());
 			vorname.setText(spielern.get(spielerListNr +1).getVorname());
 			

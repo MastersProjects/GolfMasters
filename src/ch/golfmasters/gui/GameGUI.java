@@ -9,7 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -47,11 +49,9 @@ public class GameGUI extends JFrame {
 	 */
 	public GameGUI(Spiel spiel) {
 		this.spiel = spiel;
-		spieler = spiel.getSpieler();
-		runde = new Runde(spiel.getRunden().size() + 1);
-		spiel.getRunden().add(runde);
-		
-		
+		spieler = spiel.getSpielern();
+		System.out.println(spiel.getRunden().size());
+		runde = new Runde(spiel.getRunden().size() + 1);		
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,7 +79,7 @@ public class GameGUI extends JFrame {
 		end.addActionListener(new RoundButtonListener(end.getText(), spiel, this));
 		contentPane.add(end);
 		
-		JLabel lblRunde = new JLabel("Runde x");
+		JLabel lblRunde = new JLabel("Runde " + (spiel.getRunden().size() + 1));
 		lblRunde.setBounds(22, 52, 61, 16);
 		contentPane.add(lblRunde);
 		
@@ -114,6 +114,9 @@ public class GameGUI extends JFrame {
 		contentPane.add(add);
 		
 		add.addActionListener(new AddPointListener(spiel, punkteText, spielerListNr, textArea, runde, nachnameText, vornameText, add, next, end));
+	
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 	}
 
 	public Spiel getSpiel() {

@@ -28,6 +28,7 @@ public class RoundButtonListener implements ActionListener {
 			 frame.dispose();
 		} else if (this.ButtonName.equals("Nächste Runde")){
 			new GameGUI(spiel);
+			frame.dispose();
 		}	
 	}
 

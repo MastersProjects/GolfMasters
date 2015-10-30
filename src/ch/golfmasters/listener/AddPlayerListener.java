@@ -31,10 +31,10 @@ public class AddPlayerListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (!name.getText().isEmpty() && !vorname.getText().isEmpty()) {
-			int anzahlSpieler = spiel.getSpieler().size();
+			int anzahlSpieler = spiel.getSpielern().size();
 			Spieler spieler = new Spieler(anzahlSpieler + 1,
 					this.name.getText(), this.vorname.getText());
-			spiel.getSpieler().add(spieler);
+			spiel.getSpielern().add(spieler);
 
 			String currentText = textArea.getText();
 			String newText = currentText + "\nNr: " + (anzahlSpieler + 1)
@@ -44,11 +44,11 @@ public class AddPlayerListener implements ActionListener {
 
 			name.setText("");
 			vorname.setText("");
-			if (spiel.getSpieler().size() > 1) {
+			if (spiel.getSpielern().size() > 1) {
 				btnCreateGame.setEnabled(true);
 			}
 			
-			for (Spieler spieler1 : spiel.getSpieler()) {
+			for (Spieler spieler1 : spiel.getSpielern()) {
 				System.out.println(spieler1);
 			} 
 		} else {

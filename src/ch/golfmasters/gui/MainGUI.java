@@ -1,6 +1,8 @@
 package ch.golfmasters.gui;
 
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -65,7 +67,7 @@ public class MainGUI extends JFrame {
 		vorname_textField.setColumns(10);
 		
 		JButton btnAddUser = new JButton("Add User");
-		btnAddUser.setBounds(336, 105, 101, 29);
+		btnAddUser.setBounds(331, 107, 101, 29);
 		contentPane.add(btnAddUser);
 		
 		Vector<String> columnNames = new Vector<String>();
@@ -86,6 +88,9 @@ public class MainGUI extends JFrame {
 		btnCreateGame.addActionListener(new CreateGameListener(this, spiel));
 		btnAddUser.addActionListener(new AddPlayerListener(spiel, textArea, nachname_textField, vorname_textField, btnCreateGame));
 		setContentPane(contentPane);
+		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 		setVisible(true);
 	}
 }
