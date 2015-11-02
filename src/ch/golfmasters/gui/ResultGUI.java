@@ -84,11 +84,34 @@ public class ResultGUI extends JFrame {
 		
 		
 		
-		Vector<?> data = spiel.getRangliste();
+		Vector<Object> data = spiel.getRangliste();
 		Vector<String> columnNames = new Vector<String>();
 		columnNames.addElement("Spieler");
-		columnNames.addElement("Punkte");	
-		TableModel model = new DefaultTableModel(data, columnNames);		
+		columnNames.addElement("Punkte");
+		
+		//TABLEMODEL with rangliste sort fix
+		TableModel model = new DefaultTableModel(data, columnNames) {
+	        /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public Class<?> getColumnClass(int column)
+            {
+                // Lookup first non-null data on column
+                for (int row = 0; row < getRowCount(); row++) 
+                {
+                    Object o = getValueAt(row, column);
+
+                    if (o != null)
+                        return o.getClass();
+                }
+
+                return Object.class;
+            }
+	    };
+	    
 		for(int i = 0; i < 10; i++){
 			ranglisteTable.setRowHeight(i, 30);
 		}

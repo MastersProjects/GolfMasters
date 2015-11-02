@@ -50,7 +50,7 @@ public class Spiel {
 		
 	}
 	
-	public Vector<?> getRangliste(){
+	public Vector<Object> getRangliste(){
 		Vector<Object> data = new Vector<Object>();
 		for(Spieler spieler : spielern){
 			Vector<Object> row = new Vector<Object>();
