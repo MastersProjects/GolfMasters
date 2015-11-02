@@ -13,7 +13,13 @@ import ch.golfmasters.model.Runde;
 import ch.golfmasters.model.Spiel;
 import ch.golfmasters.model.Spieler;
 
-public class AddPointListener implements ActionListener{
+/**
+ * ActionListener um Punkte in Punkte Array hinzuzufügen
+ * @author Chiramed Phong Penglerd, Elia Perenzin
+ * @version 0.5
+ *
+ */
+public class AddPointListener implements ActionListener {
 
 	private Spiel spiel;
 	private JTextField punkte;
@@ -25,8 +31,23 @@ public class AddPointListener implements ActionListener{
 	private JButton add;
 	private JButton next;
 	private JButton end;
-	
-	public AddPointListener(Spiel spiel, JTextField punkte, int spielerListNr, JTextArea textArea, Runde runde, JTextField nachnameText, JTextField vornameText, JButton add, JButton next, JButton end){
+
+	/**
+	 * Konstruktor der Klasse AddPointListener
+	 * @param spiel
+	 * @param punkte
+	 * @param spielerListNr
+	 * @param textArea
+	 * @param runde
+	 * @param nachnameText
+	 * @param vornameText
+	 * @param add
+	 * @param next
+	 * @param end
+	 */
+	public AddPointListener(Spiel spiel, JTextField punkte, int spielerListNr,
+			JTextArea textArea, Runde runde, JTextField nachnameText,
+			JTextField vornameText, JButton add, JButton next, JButton end) {
 		this.spiel = spiel;
 		this.punkte = punkte;
 		this.spielerListNr = spielerListNr;
@@ -39,26 +60,32 @@ public class AddPointListener implements ActionListener{
 		this.end = end;
 	}
 
+	//ToDo
+	@Override
 	public void actionPerformed(ActionEvent e) {
-		ArrayList<Spieler> spielern = spiel.getSpielern();	
-		this.runde.getPunkte().put(spielern.get(spielerListNr).getSpielerNr(), Integer.parseInt(punkte.getText()));
-				
+		ArrayList<Spieler> spielern = spiel.getSpielern();
+		this.runde.getPunkte().put(spielern.get(spielerListNr).getSpielerNr(),
+				Integer.parseInt(punkte.getText()));
+
 		String currentText = textArea.getText();
-		String newText = currentText + "\nNr: "+ spielern.get(spielerListNr).getSpielerNr() + "  Name: " + this.nachname.getText() + "  Vorname: " + this.vorname.getText() + "  Punkte: " + this.punkte.getText();
+		String newText = currentText + "\nNr: "
+				+ spielern.get(spielerListNr).getSpielerNr() + "  Name: "
+				+ this.nachname.getText() + "  Vorname: "
+				+ this.vorname.getText() + "  Punkte: " + this.punkte.getText();
 		textArea.setText(newText);
 		punkte.setText("");
 
-		if(spiel.getSpielern().size() == spielerListNr +1){
+		if (spiel.getSpielern().size() == spielerListNr + 1) {
 			end.setEnabled(true);
-			next.setEnabled(true);			
+			next.setEnabled(true);
 			add.setEnabled(false);
 			spiel.getRunden().add(runde);
-			
-		}else if(spiel.getSpielern().size() != spielerListNr +1){
-			nachname.setText(spielern.get(spielerListNr +1).getName());
-			vorname.setText(spielern.get(spielerListNr +1).getVorname());
-			
-			this.spielerListNr = this.spielerListNr +1;
+
+		} else if (spiel.getSpielern().size() != spielerListNr + 1) {
+			nachname.setText(spielern.get(spielerListNr + 1).getName());
+			vorname.setText(spielern.get(spielerListNr + 1).getVorname());
+
+			this.spielerListNr = this.spielerListNr + 1;
 		}
 	}
 

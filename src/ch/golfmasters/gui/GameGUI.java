@@ -23,11 +23,14 @@ import javax.swing.JTextField;
 
 import java.util.ArrayList;
 
+/**
+ * GameGUI Klasse, ist nur für Layout zuständig,
+ * ist dafür da Resultate in das Programme aufzunehmen
+ * @author Chiramed Phong Penglerd, Elia Perenzin
+ * @version 0.1
+ */
 public class GameGUI extends JFrame {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private int spielerListNr = 0;

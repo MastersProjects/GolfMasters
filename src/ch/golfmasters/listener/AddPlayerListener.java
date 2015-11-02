@@ -11,6 +11,11 @@ import javax.swing.JTextField;
 import ch.golfmasters.model.Spiel;
 import ch.golfmasters.model.Spieler;
 
+/**
+ * ActionListener um Spieler in Spieler Array hinzuzufügen
+ * @author Chiramed Phong Penglerd, Elia Perenzin
+ * @version 0.3
+ */
 public class AddPlayerListener implements ActionListener {
 
 	private Spiel spiel;
@@ -19,6 +24,14 @@ public class AddPlayerListener implements ActionListener {
 	private JTextField vorname;
 	private JButton btnCreateGame;
 
+	/**
+	 * Konstruktor der Klasse AddPlayerListener
+	 * @param spiel
+	 * @param textArea
+	 * @param name
+	 * @param vorname
+	 * @param btnCreateGame
+	 */
 	public AddPlayerListener(Spiel spiel, JTextArea textArea, JTextField name,
 			JTextField vorname, JButton btnCreateGame) {
 		this.spiel = spiel;
@@ -28,6 +41,7 @@ public class AddPlayerListener implements ActionListener {
 		this.btnCreateGame = btnCreateGame;
 	}
 
+	//ToDo
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (!name.getText().isEmpty() && !vorname.getText().isEmpty()) {
@@ -47,17 +61,15 @@ public class AddPlayerListener implements ActionListener {
 			if (spiel.getSpielern().size() > 1) {
 				btnCreateGame.setEnabled(true);
 			}
-			
+
 			for (Spieler spieler1 : spiel.getSpielern()) {
 				System.out.println(spieler1);
-			} 
+			}
 		} else {
-			JOptionPane.showMessageDialog(null,
-				    "Bitte alles ausfüllen.",
-				    "Inane error",
-				    JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen.",
+					"Inane error", JOptionPane.ERROR_MESSAGE);
 		}
-				
-		}
+
+	}
 
 }

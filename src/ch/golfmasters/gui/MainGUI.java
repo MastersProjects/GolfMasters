@@ -17,11 +17,14 @@ import ch.golfmasters.listener.AddPlayerListener;
 import ch.golfmasters.listener.CreateGameListener;
 import ch.golfmasters.model.Spiel;
 
+/**
+ * MainGUI Klasse, ist nur für Layout zuständig,
+ * wird beim Starten des Programms erzeugt
+ * @author Chiramed Phong Penglerd, Elia Perenzin
+ * @version 0.1
+ */
 public class MainGUI extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField nachname_textField;
