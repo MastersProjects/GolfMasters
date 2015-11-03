@@ -27,13 +27,13 @@ import java.util.ArrayList;
  * GameGUI Klasse, ist nur für Layout zuständig,
  * ist dafür da Resultate in das Programme aufzunehmen
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.1
+ * @version 1.0
  */
 public class GameGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private int spielerListNr = 0;
+	private int spielerListNr;
 	
 	private Spiel spiel;
 	private Runde runde;
@@ -48,6 +48,7 @@ public class GameGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GameGUI(Spiel spiel) {
+		spielerListNr = 0;
 		this.spiel = spiel;
 		spieler = spiel.getSpielern();
 		System.out.println(spiel.getRunden().size());

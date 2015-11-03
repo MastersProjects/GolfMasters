@@ -21,7 +21,7 @@ import ch.golfmasters.model.Spiel;
  * MainGUI Klasse, ist nur für Layout zuständig,
  * wird beim Starten des Programms erzeugt
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.1
+ * @version 1.0
  */
 public class MainGUI extends JFrame {
 

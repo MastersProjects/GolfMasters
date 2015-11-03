@@ -35,7 +35,7 @@ import javax.swing.JScrollPane;
  * ResultGUI Klasse, ist nur für Layout zuständig
  * wird aufgerufen wenn Resultat angezeigt werden soll.
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.1
+ * @version 1.0
  */
 public class ResultGUI extends JFrame {
 

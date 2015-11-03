@@ -88,6 +88,8 @@ public class AddPointListener implements ActionListener {
 	
 				this.spielerListNr = this.spielerListNr + 1;
 			}
+		}else{
+			JOptionPane.showMessageDialog(null, "Die Zahl ist ungültig","Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -96,14 +98,13 @@ public class AddPointListener implements ActionListener {
 		try{
 			inputInt = Integer.parseInt(input);
 		}catch(NumberFormatException e){
-			JOptionPane.showMessageDialog(null, "Eingabe ist keine Zahl","Error", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		
 		if(inputInt <= 7 && inputInt > 0){
 			return true;
 		}else{
-			JOptionPane.showMessageDialog(null, "Die Zahl ist ungültig","Error", JOptionPane.ERROR_MESSAGE);
+			
 			return false;
 		}
 	}
