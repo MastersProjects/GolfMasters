@@ -18,10 +18,11 @@ import ch.golfmasters.listener.AddPointListener;
  * @author Chiramed Phong Penglerd, Elia Perenzin
  * @version 1.0
  */
+@SuppressWarnings("deprecation")
 @RunWith(Parameterized.class)
 public class CheckPointInput {
 	private static AddPointListener pointListener;
-	private static String point;
+	private String point;
 	private boolean result;
 	
 	public CheckPointInput(String point, boolean result) {
@@ -46,7 +47,6 @@ public class CheckPointInput {
 	     {"8", false}, {"7", true}, {"6", true}, {"0", false}, {"-1", false}, {"abc", false}, {"10", false}, {"6", true}});
 	  }
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void test() {
 		Assert.assertEquals(pointListener.checkInput(point), result);
