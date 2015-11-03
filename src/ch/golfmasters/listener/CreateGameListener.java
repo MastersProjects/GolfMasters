@@ -10,7 +10,7 @@ import ch.golfmasters.model.Spiel;
 /**
  * ActionListener um ein neues Spiel zu erstellen.
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.4
+ * @version 1.0 
  */
 public class CreateGameListener implements ActionListener{
 
@@ -19,9 +19,9 @@ public class CreateGameListener implements ActionListener{
 	private JFrame frame;
 	
 	/**
-	 * Konstruktor der Klasse CreateGameListener
-	 * @param frame
-	 * @param spiel
+	 * Konstruktor der Klasse {@link CreateGameListener}
+	 * @param frame {@link JFrame}
+	 * @param spiel {@link Spiel}
 	 */
 	public CreateGameListener(JFrame frame, Spiel spiel){
 		this.setSpiel(spiel);

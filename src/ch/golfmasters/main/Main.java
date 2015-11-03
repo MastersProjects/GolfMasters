@@ -4,7 +4,7 @@ import ch.golfmasters.gui.MainGUI;
 /**
  * Starter Klasse für Golfmasters erstellt neues GUI
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.3
+ * @version 1.0
  */
 public class Main {
 

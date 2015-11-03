@@ -17,6 +17,8 @@ import ch.golfmasters.listener.AddPlayerListener;
 import ch.golfmasters.listener.CreateGameListener;
 import ch.golfmasters.model.Spiel;
 
+import javax.swing.JScrollPane;
+
 /**
  * MainGUI Klasse, ist nur für Layout zuständig,
  * wird beim Starten des Programms erzeugt
@@ -36,11 +38,7 @@ public class MainGUI extends JFrame {
 	private Spiel spiel = new Spiel(1);
 
 	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
+	 * Konstruktor der Klasse {@link MainGUI}
 	 */
 	public MainGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,8 +78,6 @@ public class MainGUI extends JFrame {
 		Vector<String> columnNames = new Vector<String>();
 		columnNames.addElement("Name");
 		columnNames.addElement("Vorname");
-		textArea.setBounds(22, 161 , 410, 131);
-		contentPane.add(textArea);
 		
 		lblPlayers = new JLabel("Players");
 		lblPlayers.setBounds(22, 134, 61, 16);
@@ -93,8 +89,14 @@ public class MainGUI extends JFrame {
 		contentPane.add(btnCreateGame);
 		
 		btnCreateGame.addActionListener(new CreateGameListener(this, spiel));
-		btnAddUser.addActionListener(new AddPlayerListener(spiel, textArea, nachname_textField, vorname_textField, btnCreateGame));
 		setContentPane(contentPane);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 174, 410, 118);
+		contentPane.add(scrollPane);
+		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
+		btnAddUser.addActionListener(new AddPlayerListener(spiel, textArea, nachname_textField, vorname_textField, btnCreateGame));
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);

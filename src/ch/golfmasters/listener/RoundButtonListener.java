@@ -12,7 +12,7 @@ import ch.golfmasters.model.Spiel;
  * ButtonListener für das {@link MainGUI} enthält Button
  * um Spiel zu beenden oder nächste Runde
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.1
+ * @version 1.0
  */
 public class RoundButtonListener implements ActionListener {
 	
@@ -22,10 +22,10 @@ public class RoundButtonListener implements ActionListener {
 	private JFrame frame;
 	
 	/**
-	 * Konstruktor dr Klasse RoundButtonListener
-	 * @param ButtonName
-	 * @param spiel
-	 * @param frame
+	 * Konstruktor dr Klasse {@link RoundButtonListener}
+	 * @param ButtonName {@link String}
+	 * @param spiel {@link Spiel}
+	 * @param frame {@link JFrame}
 	 */
 	public RoundButtonListener(String ButtonName, Spiel spiel, JFrame frame) {
 		this.setButtonName(ButtonName);

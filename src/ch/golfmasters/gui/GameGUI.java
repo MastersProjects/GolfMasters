@@ -22,6 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import java.util.ArrayList;
+import javax.swing.JScrollPane;
 
 /**
  * GameGUI Klasse, ist nur für Layout zuständig,
@@ -45,7 +46,8 @@ public class GameGUI extends JFrame {
 	private JTextField vornameText;
 
 	/**
-	 * Create the frame.
+	 * Konstruktor der Klasse {@link GameGUI}
+	 * @param spiel {@link Spiel}
 	 */
 	public GameGUI(Spiel spiel) {
 		spielerListNr = 0;
@@ -84,11 +86,6 @@ public class GameGUI extends JFrame {
 		lblRunde.setBounds(22, 52, 61, 16);
 		contentPane.add(lblRunde);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(22, 126, 449, 149);
-		textArea.setEditable(false);
-		contentPane.add(textArea);
-		
 		JLabel lblNewLabel = new JLabel("Punkte:");
 		lblNewLabel.setBounds(254, 81, 46, 14);
 		contentPane.add(lblNewLabel);
@@ -114,17 +111,51 @@ public class GameGUI extends JFrame {
 		add.setBounds(382, 77, 89, 23);
 		contentPane.add(add);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 133, 449, 131);
+		contentPane.add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
+		
 		add.addActionListener(new AddPointListener(spiel, punkteText, spielerListNr, textArea, runde, nachnameText, vornameText, add, next, end));
 	
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 	}
 
+	
+	//Getter und Setter
 	public Spiel getSpiel() {
 		return spiel;
 	}
 
 	public void setSpiel(Spiel spiel) {
 		this.spiel = spiel;
+	}
+
+	public int getSpielerListNr() {
+		return spielerListNr;
+	}
+
+	public void setSpielerListNr(int spielerListNr) {
+		this.spielerListNr = spielerListNr;
+	}
+
+	public Runde getRunde() {
+		return runde;
+	}
+
+	public void setRunde(Runde runde) {
+		this.runde = runde;
+	}
+
+	public ArrayList<Spieler> getSpieler() {
+		return spieler;
+	}
+
+	public void setSpieler(ArrayList<Spieler> spieler) {
+		this.spieler = spieler;
 	}
 }

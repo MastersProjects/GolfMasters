@@ -7,17 +7,23 @@ import java.util.Vector;
  * Model Klasse Spiel, enthält alles Attribute die für eine Spiel benötigt
  * werden.
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.3
+ * @version 1.0
  */
 public class Spiel {
 
 	// Instanz Variablen
 	private int spielNr;
-	private ArrayList<Runde> runden = new ArrayList<>();
-	private ArrayList<Spieler> spielern = new ArrayList<>();
+	private ArrayList<Runde> runden;
+	private ArrayList<Spieler> spielern;
 
+	/**
+	 * Konstruktor der Klasse {@link Spiel}
+	 * @param spielNr int
+	 */
 	public Spiel(int spielNr) {
 		this.spielNr = spielNr;
+		this.runden = new ArrayList<>();
+		this.spielern = new ArrayList<>();
 	}
 
 	// Getter und Setter

@@ -10,7 +10,7 @@ import ch.golfmasters.gui.MainGUI;
  * ButtonListener für das {@link ResultGUI} enthält Button
  * um Spiel zu beenden oder neues Spiel zu starten
  * @author Chiramed Phong Penglerd, Elia Perenzin 
- * @version 0.1
+ * @version 1.0
  */
 public class ResultGUIListener implements ActionListener {
 
@@ -19,9 +19,9 @@ public class ResultGUIListener implements ActionListener {
 	private JFrame frame;
 
 	/**
-	 * Konstruktor der Klasse ResultGUIListener
-	 * @param btnName
-	 * @param frame
+	 * Konstruktor der Klasse {@link ResultGUIListener}
+	 * @param btnName {@link String}
+	 * @param frame {@link JFrame}
 	 */
 	public ResultGUIListener(String btnName, JFrame frame){
 		this.setBtnName(btnName);

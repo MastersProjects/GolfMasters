@@ -7,16 +7,21 @@ import java.util.Map;
  * Model Klasse Runde, enthält alles Attribute
  * die für eine Runde benötigt werden.
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.2
+ * @version 1.0
  */
 public class Runde {
 
 	// Instanz Variablen
 	private int rundeNummer;
-	private Map<Integer, Integer> punkte = new HashMap<Integer, Integer>();
-
+	private Map<Integer, Integer> punkte;
+	
+	/**
+	 * Konstruktor der Klasse {@link Runde}
+	 * @param rundeNummer int
+	 */
 	public Runde(int rundeNummer) {
 		this.rundeNummer = rundeNummer;
+		this.punkte = new HashMap<Integer, Integer>();
 	}
 
 	// Getter und Setter

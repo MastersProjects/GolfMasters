@@ -1,12 +1,10 @@
 package ch.golfmasters.gui;
 
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Vector;
 
@@ -25,7 +23,6 @@ import javax.swing.table.TableRowSorter;
 import ch.golfmasters.listener.ResultGUIListener;
 import ch.golfmasters.model.Spiel;
 
-import javax.swing.JTextArea;
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
 import javax.swing.SwingConstants;
@@ -46,7 +43,8 @@ public class ResultGUI extends JFrame {
 	protected JTable ranglisteTable = new JTable();
 
 	/**
-	 * Create the frame.
+	 * Konstruktor der Klasse {@link ResultGUI}
+	 * @param Spiel {@link Spiel}
 	 */
 	public ResultGUI(Spiel spiel) {
 		this.setSpiel(spiel);
@@ -71,14 +69,12 @@ public class ResultGUI extends JFrame {
 
 		JButton btnBeenden = new JButton("Beenden");
 		btnBeenden.setBounds(365, 324, 117, 29);
-		btnBeenden.addActionListener(new ResultGUIListener(
-				btnBeenden.getText(), this));
+		btnBeenden.addActionListener(new ResultGUIListener(btnBeenden.getText(), this));
 		contentPane.add(btnBeenden);
 
 		JButton btnNeuesSpiel = new JButton("Neues Spiel");
 		btnNeuesSpiel.setBounds(224, 324, 117, 29);
-		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel
-				.getText(), this));
+		btnNeuesSpiel.addActionListener(new ResultGUIListener(btnNeuesSpiel.getText(), this));
 		contentPane.add(btnNeuesSpiel);
 
 		Vector<Object> data = spiel.getRangliste();
@@ -88,9 +84,7 @@ public class ResultGUI extends JFrame {
 
 		// TABLEMODEL with rangliste sort fix
 		TableModel model = new DefaultTableModel(data, columnNames) {
-			/**
-			 * 
-			 */
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -120,16 +114,13 @@ public class ResultGUI extends JFrame {
 
 		ranglisteTable.setModel(model);
 		ranglisteTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-		ranglisteTable.getColumnModel().getColumn(0)
-				.setCellRenderer(centerRender);
-		ranglisteTable.getColumnModel().getColumn(1)
-				.setCellRenderer(centerRender);
+		ranglisteTable.getColumnModel().getColumn(0).setCellRenderer(centerRender);
+		ranglisteTable.getColumnModel().getColumn(1).setCellRenderer(centerRender);
 		ranglisteTable.setFont(new Font("Arial", Font.PLAIN, 20));
 		ranglisteTable.setEnabled(false);
 		ranglisteTable.setRowHeight(25);
 
-		TableRowSorter<TableModel> sorter = new TableRowSorter<>(
-				ranglisteTable.getModel());
+		TableRowSorter<TableModel> sorter = new TableRowSorter<>(ranglisteTable.getModel());
 		ranglisteTable.setRowSorter(sorter);
 		List<RowSorter.SortKey> sortKeys = new ArrayList<>();
 		sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
@@ -144,8 +135,7 @@ public class ResultGUI extends JFrame {
 		contentPane.add(scrollPane);
 
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height
-				/ 2 - this.getSize().height / 2);
+		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height/ 2 - this.getSize().height / 2);
 
 		setVisible(true);
 	}

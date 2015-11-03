@@ -1,6 +1,5 @@
 package ch.golfmasters.listener;
 
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import ch.golfmasters.model.Spieler;
 /**
  * ActionListener um Punkte in Punkte Array hinzuzufÃ¼gen
  * @author Chiramed Phong Penglerd, Elia Perenzin
- * @version 0.5
+ * @version 1.0
  *
  */
 public class AddPointListener implements ActionListener {
@@ -34,17 +33,17 @@ public class AddPointListener implements ActionListener {
 	private JButton end;
 
 	/**
-	 * Konstruktor der Klasse AddPointListener
-	 * @param spiel
-	 * @param punkte
-	 * @param spielerListNr
-	 * @param textArea
-	 * @param runde
-	 * @param nachnameText
-	 * @param vornameText
-	 * @param add
-	 * @param next
-	 * @param end
+	 * Konstruktor der Klasse {@link AddPointListener}
+	 * @param spiel {@link Spiel}
+	 * @param punkte {@link JTextField}
+	 * @param spielerListNr int
+	 * @param textArea {@link JTextArea}
+	 * @param runde {@link Runde}
+	 * @param nachnameText {@link JTextField}
+	 * @param vornameText {@link JTextField}
+	 * @param add {@link JButton}
+	 * @param next {@link JButton}
+	 * @param end {@link JButton}
 	 */
 	public AddPointListener(Spiel spiel, JTextField punkte, int spielerListNr,
 			JTextArea textArea, Runde runde, JTextField nachnameText,
@@ -61,27 +60,33 @@ public class AddPointListener implements ActionListener {
 		this.end = end;
 	}
 
-	//ToDo
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) { 
 		ArrayList<Spieler> spielern = spiel.getSpielern();
+		
+		//Wenn eingabe gültig ist
 		if(checkInput(punkte.getText())){
-			this.runde.getPunkte().put(spielern.get(spielerListNr).getSpielerNr(),Integer.parseInt(punkte.getText()));
-	
+			this.runde.getPunkte().put(spielern.get(spielerListNr).getSpielerNr(),Integer.parseInt(punkte.getText())); //eingabe ins model einfügen
+				
+			//TextArea neue Reihe schreiben
 			String currentText = textArea.getText();
 			String newText = currentText + "\nNr: "
 					+ spielern.get(spielerListNr).getSpielerNr() + "  Name: "
 					+ this.nachname.getText() + "  Vorname: "
 					+ this.vorname.getText() + "  Punkte: " + this.punkte.getText();
 			textArea.setText(newText);
+			
+			//TextField Inhalt löschen
 			punkte.setText("");
 	
+			//Wenn alle Spieler durch Buttons freischalten
 			if (spiel.getSpielern().size() == spielerListNr + 1) {
 				end.setEnabled(true);
 				next.setEnabled(true);
 				add.setEnabled(false);
 				spiel.getRunden().add(runde);
 	
+			//Wenn noch nicht alle spieler durch
 			} else if (spiel.getSpielern().size() != spielerListNr + 1) {
 				nachname.setText(spielern.get(spielerListNr + 1).getName());
 				vorname.setText(spielern.get(spielerListNr + 1).getVorname());
@@ -93,6 +98,12 @@ public class AddPointListener implements ActionListener {
 		}
 	}
 	
+	
+	/**
+	 * 
+	 * @param input {@link String}
+	 * @return
+	 */
 	public boolean checkInput(String input){
 		int inputInt = 0;
 		try{

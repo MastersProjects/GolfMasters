@@ -13,6 +13,12 @@ public class Spieler {
 	private String name;
 	private String vorname;
 
+	/**
+	 * Konstruktor der Klasse {@link Spieler}
+	 * @param spielerNr int
+	 * @param name {@link String}
+	 * @param vorname {@link String}
+	 */
 	public Spieler(int spielerNr, String name, String vorname) {
 		this.spielerNr = spielerNr;
 		this.name = name;
