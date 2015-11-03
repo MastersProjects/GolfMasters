@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 import ch.golfmasters.gui.MainGUI;
 /**
- * ButtonListener für das {@link ResultGUI} enthält Button
+ * ButtonListener für das ResultGUI enthält Button
  * um Spiel zu beenden oder neues Spiel zu starten
  * @author Chiramed Phong Penglerd, Elia Perenzin 
  * @version 1.0

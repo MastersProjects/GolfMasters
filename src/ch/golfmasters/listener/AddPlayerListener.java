@@ -12,7 +12,7 @@ import ch.golfmasters.model.Spiel;
 import ch.golfmasters.model.Spieler;
 
 /**
- * ActionListener um Spieler in Spieler Array hinzuzufÃ¼gen
+ * ActionListener um Spieler in Spieler Array hinzuzufuegen
  * @author Chiramed Phong Penglerd, Elia Perenzin
  * @version 1.0
  */
@@ -56,7 +56,7 @@ public class AddPlayerListener implements ActionListener {
 					+ this.vorname.getText();
 			textArea.setText(newText);
 
-			//TextField Inhalt löschen
+			//TextField Inhalt loeschen
 			name.setText("");
 			vorname.setText("");
 			
@@ -66,7 +66,7 @@ public class AddPlayerListener implements ActionListener {
 			}
 
 		} else {
-			JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen.","Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Bitte alles ausfuellen.","Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

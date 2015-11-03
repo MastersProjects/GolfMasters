@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 /**
- * Model Klasse Spiel, enthält alles Attribute die für eine Spiel benötigt
+ * Model Klasse Spiel, enthaelt alles Attribute die für eine Spiel benoetigt
  * werden.
  * @author Chiramed Phong Penglerd, Elia Perenzin
  * @version 1.0
@@ -69,7 +69,7 @@ public class Spiel {
 //ToDo
 	/**
 	 * 
-	 * @return Vector<Object>
+	 * @return Vector
 	 */
 	public Vector<Object> getRangliste() {
 		Vector<Object> data = new Vector<Object>();
@@ -84,7 +84,6 @@ public class Spiel {
 			data.addElement(row);
 		}
 		return data;
-
 	}
 
 }

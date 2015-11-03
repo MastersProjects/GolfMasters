@@ -9,7 +9,7 @@ import ch.golfmasters.gui.GameGUI;
 import ch.golfmasters.gui.ResultGUI;
 import ch.golfmasters.model.Spiel;
 /**
- * ButtonListener für das {@link MainGUI} enthält Button
+ * ButtonListener für das MainGUI enthält Button
  * um Spiel zu beenden oder nächste Runde
  * @author Chiramed Phong Penglerd, Elia Perenzin
  * @version 1.0

@@ -29,7 +29,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 
 /**
- * ResultGUI Klasse, ist nur für Layout zuständig
+ * ResultGUI Klasse, ist nur für Layout zustaendig
  * wird aufgerufen wenn Resultat angezeigt werden soll.
  * @author Chiramed Phong Penglerd, Elia Perenzin
  * @version 1.0
@@ -44,7 +44,7 @@ public class ResultGUI extends JFrame {
 
 	/**
 	 * Konstruktor der Klasse {@link ResultGUI}
-	 * @param Spiel {@link Spiel}
+	 * @param spiel {@link Spiel}
 	 */
 	public ResultGUI(Spiel spiel) {
 		this.setSpiel(spiel);

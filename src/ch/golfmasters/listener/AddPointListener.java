@@ -64,9 +64,9 @@ public class AddPointListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) { 
 		ArrayList<Spieler> spielern = spiel.getSpielern();
 		
-		//Wenn eingabe gültig ist
+		//Wenn eingabe gueltig ist
 		if(checkInput(punkte.getText())){
-			this.runde.getPunkte().put(spielern.get(spielerListNr).getSpielerNr(),Integer.parseInt(punkte.getText())); //eingabe ins model einfügen
+			this.runde.getPunkte().put(spielern.get(spielerListNr).getSpielerNr(),Integer.parseInt(punkte.getText())); //eingabe ins model einfuegen
 				
 			//TextArea neue Reihe schreiben
 			String currentText = textArea.getText();
@@ -76,7 +76,7 @@ public class AddPointListener implements ActionListener {
 					+ this.vorname.getText() + "  Punkte: " + this.punkte.getText();
 			textArea.setText(newText);
 			
-			//TextField Inhalt löschen
+			//TextField Inhalt loeschen
 			punkte.setText("");
 	
 			//Wenn alle Spieler durch Buttons freischalten
@@ -94,15 +94,14 @@ public class AddPointListener implements ActionListener {
 				this.spielerListNr = this.spielerListNr + 1;
 			}
 		}else{
-			JOptionPane.showMessageDialog(null, "Die Zahl ist ungültig","Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Die Zahl ist ungueltig","Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
-	
 	/**
-	 * 
+	 * Check input ob Zahlen gueltig sind
 	 * @param input {@link String}
-	 * @return
+	 * @return boolean
 	 */
 	public boolean checkInput(String input){
 		int inputInt = 0;
