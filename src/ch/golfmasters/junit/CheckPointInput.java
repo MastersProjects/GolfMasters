@@ -44,7 +44,7 @@ public class CheckPointInput {
 	@Parameters
 	  public static Collection<Object[]> values() {
 	    return Arrays.asList(new Object[][] {
-	     {"8", false}, {"7", true}, {"6", true}, {"0", false}, {"-1", false}, {"abc", false}, {"10", false}, {"6", true}});
+	     {"8", false}, {"7", true}, {"6", true}, {"0", false}, {"-1", false}, {"abc", false}, {"10", false}, {"1", true}});
 	  }
 
 	@Test
