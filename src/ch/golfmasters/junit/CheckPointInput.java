@@ -40,7 +40,6 @@ public class CheckPointInput {
 		CheckPointInput.pointListener = null;
 	  }
 
-
 	@Parameters
 	  public static Collection<Object[]> values() {
 	    return Arrays.asList(new Object[][] {
